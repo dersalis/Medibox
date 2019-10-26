@@ -1,0 +1,183 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Medibox.Pages.NewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+    
+    
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="PickerFullItemTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding}" FontSize="45" Margin="0, 5"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PickerItemTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding}"/>
+            </StackPanel>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+    
+    
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/save.png" Text="button"/>
+            <shell:ApplicationBarIconButton IconUri="appbar_button.png" Text="button"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+    
+    <!--LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <phone:Panorama>
+            <phone:Panorama.Title>
+                <StackPanel Orientation="Horizontal" Margin="12, 55, 0, 0">
+                    <Image Source="/Images/med_gr_48.png" Height="35"/>
+                    <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" FontSize="35" Margin="10, 0, 0, 0" Foreground="#FF8B8B8B"/>
+                </StackPanel>
+            </phone:Panorama.Title>
+
+            <!-- NOWE LEKARSTWO -->
+            <phone:PanoramaItem Margin="0, 0, -46, 0">
+                <phone:PanoramaItem.Header>
+                    <TextBlock Text="{Binding Path=LocalizedResources.PageNewMedicine, Source={StaticResource LocalizedStrings}}" FontSize="50" Foreground="DarkOrange" />
+                </phone:PanoramaItem.Header>
+
+                <Grid Margin="12, -30, 22, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Grid.Row="0" Width="1000" Height="1" Fill="#4C9E000B"/>
+                    
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                        <StackPanel Orientation="Vertical">
+                            <Grid Margin="0, 10, 0, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Path=LocalizedResources.TextMedicineName, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="0, 0, 0, 0"/>
+                                <TextBlock x:Name="txtHelpMedicinName" Grid.Column="1" Text="{Binding Path=LocalizedResources.TextHelp, Source={StaticResource LocalizedStrings}}" TextAlignment="Right" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#A5FF0000" FontSize="16" Margin="0, 4, 0, 0"
+                                           Tap="txtHelpMedicinName_Tap"/>
+                                           
+                            </Grid>
+                            <toolkit:PhoneTextBox x:Name="boxMedicinName" Hint="{Binding Path=LocalizedResources.TextTypeMedicineName, Source={StaticResource LocalizedStrings}}" InputScope="Text" MaxLength="32" LengthIndicatorVisible="False" Margin="-11, -5, -11, 0"
+                                                  TextChanged="boxMedicinName_TextChanged"/>
+
+                            <Grid Margin="0, 10, 0, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Path=LocalizedResources.TextDose, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="0, 0, 0, 0"/>
+                                <TextBlock x:Name="txtHelpDose" Grid.Column="1" Text="{Binding Path=LocalizedResources.TextHelp, Source={StaticResource LocalizedStrings}}" TextAlignment="Right" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#A5FF0000" FontSize="16" Margin="0, 4, 0, 0"
+                                           Tap="txtHelpDose_Tap"/>
+                            </Grid>
+                            <toolkit:PhoneTextBox x:Name="boxDose" Hint="{Binding Path=LocalizedResources.TextTypeDose, Source={StaticResource LocalizedStrings}}" InputScope="Text"  MaxLength="16" LengthIndicatorVisible="False" Margin="-11, -5, -11, 0"
+                                                  TextChanged="boxMedicinName_TextChanged"/>
+
+                            <Grid Margin="0, 10, 0, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Path=LocalizedResources.TextNumberOfDosePerDay, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="0, 0, 0, 0"/>
+                                <TextBlock x:Name="txtHelpNumberOfDosePerDay" Grid.Column="1" Text="{Binding Path=LocalizedResources.TextHelp, Source={StaticResource LocalizedStrings}}" TextAlignment="Right" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#A5FF0000" FontSize="16" Margin="0, 4, 0, 0"
+                                           Tap="txtHelpNumberOfDosePerDay_Tap"/>
+                            </Grid>
+                            <toolkit:ListPicker x:Name="boxNumberOfDosePerDay" ItemsSource="{Binding NumberOfDosesPerDayArray}" ExpansionMode="FullScreenOnly" FullModeHeader="{Binding Path=LocalizedResources.TextSelectNumberOfDosePerDay, Source={StaticResource LocalizedStrings}}" 
+                                                FullModeItemTemplate="{StaticResource PickerFullItemTemplate}" ItemTemplate="{StaticResource PickerItemTemplate}" Margin="0, -0, 0, 0"/>
+
+                            <Grid Margin="0, 10, 0, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Path=LocalizedResources.TextStartDate, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="0, 0, 0, 0"/>
+                                <TextBlock x:Name="txtHelpStartDate" Grid.Column="1" Text="{Binding Path=LocalizedResources.TextHelp, Source={StaticResource LocalizedStrings}}" TextAlignment="Right" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#A5FF0000" FontSize="16" Margin="0, 4, 0, 0"
+                                           Tap="txtHelpStartDate_Tap"/>
+                            </Grid>
+                            <toolkit:DatePicker x:Name="boxStartDate" Margin="-11, -5, -11, 0" />
+
+                            <Grid Margin="0, 10, 0, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Path=LocalizedResources.TextStartTime, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="0, 0, 0, 0"/>
+                                <TextBlock x:Name="txtHelpStartTime" Grid.Column="1" Text="{Binding Path=LocalizedResources.TextHelp, Source={StaticResource LocalizedStrings}}" TextAlignment="Right" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#A5FF0000" FontSize="16" Margin="0, 4, 0, 0"
+                                           Tap="txtHelpStartTime_Tap"/>
+                            </Grid>
+                            <toolkit:TimePicker x:Name="boxStartTime" Margin="-11, -5, -11, 0"/>
+
+                            <Grid Margin="0, 10, 0, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Path=LocalizedResources.TextStopDate, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="0, 0, 0, 0"/>
+                                <TextBlock x:Name="txtStopDate" Grid.Column="1" Text="{Binding Path=LocalizedResources.TextHelp, Source={StaticResource LocalizedStrings}}" TextAlignment="Right" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#A5FF0000" FontSize="16" Margin="0, 4, 0, 0"
+                                           Tap="txtStopDate_Tap"/>
+                            </Grid>
+                            <toolkit:DatePicker x:Name="boxStopDate" Margin="-11, -5, -11, 0"/>
+
+                            <Grid Margin="0, 10, 0, 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Path=LocalizedResources.TextReminder, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="0, 0, 0, 0"/>
+                                <TextBlock x:Name="txtHelpReminder" Grid.Column="1" Text="{Binding Path=LocalizedResources.TextHelp, Source={StaticResource LocalizedStrings}}" TextAlignment="Right" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#A5FF0000" FontSize="16" Margin="0, 4, 0, 0"
+                                           Tap="txtHelpReminder_Tap"/>
+                            </Grid>
+                            <toolkit:ToggleSwitch x:Name="btnReminder" Content="{Binding Path=LocalizedResources.TextReminderOff, Source={StaticResource LocalizedStrings}}" Margin="-11, -11, -11, -21" Checked="btnReminder_Checked" Unchecked="btnReminder_Unchecked"/>
+
+                            <Grid Margin="0, 10, 0, 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Path=LocalizedResources.TextPriority, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="0, 0, 0, 0"/>
+                                <TextBlock x:Name="txtHelpPriority" Grid.Column="1" Text="{Binding Path=LocalizedResources.TextHelp, Source={StaticResource LocalizedStrings}}" TextAlignment="Right" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#A5FF0000" FontSize="16" Margin="0, 4, 0, 0"
+                                           Tap="txtHelpPriority_Tap"/>
+                            </Grid>
+                            <toolkit:ToggleSwitch x:Name="btnPriority" Content="{Binding Path=LocalizedResources.TextPriorityNormal, Source={StaticResource LocalizedStrings}}" Margin="-11, -11, -11, -21" Checked="btnPriority_Checked" Unchecked="btnPriority_Unchecked"/>
+
+                            <Grid Margin="0, 10, 0, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Path=LocalizedResources.TextNote, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="0, 0, 0, 0"/>
+                                <TextBlock x:Name="txtHelpNote" Grid.Column="1" Text="{Binding Path=LocalizedResources.TextHelp, Source={StaticResource LocalizedStrings}}" TextAlignment="Right" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#A5FF0000" FontSize="16" Margin="0, 4, 0, 0"
+                                           Tap="txtHelpNote_Tap"/>
+                            </Grid>
+                            <toolkit:PhoneTextBox x:Name="boxNote" Hint="{Binding Path=LocalizedResources.TextTypeNote, Source={StaticResource LocalizedStrings}}" InputScope="Text" TextWrapping="Wrap" AcceptsReturn="True" MaxLength="128" Margin="-11, -5, -11, 10"/>
+                        </StackPanel>
+
+                    </ScrollViewer>
+
+                </Grid>
+
+            </phone:PanoramaItem>
+
+        </phone:Panorama>
+    </Grid>
+
+</phone:PhoneApplicationPage>

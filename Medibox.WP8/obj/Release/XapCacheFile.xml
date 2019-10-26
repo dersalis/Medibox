@@ -1,0 +1,51 @@
+﻿<xapCache source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Bin\Release\Medibox_Release_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="2014-03-27 20:07:59">
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\obj\Release\Medibox.dll" archivePath="Medibox.dll" lastWriteTime="2014-03-27 20:07:57" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\obj\Release\pl-PL\Medibox.resources.dll" archivePath="pl-PL\Medibox.resources.dll" lastWriteTime="2014-03-27 20:07:57" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\packages\WPtoolkit.4.2013.08.16\lib\wp8\pl-PL\Microsoft.Phone.Controls.Toolkit.resources.dll" archivePath="pl-PL\Microsoft.Phone.Controls.Toolkit.resources.dll" lastWriteTime="2014-01-16 20:54:25" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\AppBar\add.png" archivePath="Assets\AppBar\add.png" lastWriteTime="2013-03-03 19:40:36" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\AppBar\cancel.png" archivePath="Assets\AppBar\cancel.png" lastWriteTime="2013-03-03 19:40:36" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\AppBar\delete.png" archivePath="Assets\AppBar\delete.png" lastWriteTime="2013-03-03 19:40:36" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\AppBar\edit.png" archivePath="Assets\AppBar\edit.png" lastWriteTime="2013-03-03 19:40:36" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\AppBar\save.png" archivePath="Assets\AppBar\save.png" lastWriteTime="2013-03-03 19:40:38" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\alarm.png" archivePath="Images\alarm.png" lastWriteTime="2014-01-16 19:32:00" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\add.png" archivePath="Images\add.png" lastWriteTime="2014-01-16 21:34:13" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\email.png" archivePath="Images\email.png" lastWriteTime="2014-02-24 21:39:44" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\facebook_128.png" archivePath="Images\facebook_128.png" lastWriteTime="2014-03-18 20:31:39" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\highPriority.png" archivePath="Images\highPriority.png" lastWriteTime="2014-01-16 19:32:00" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\mail_48.png" archivePath="Images\mail_48.png" lastWriteTime="2014-01-16 21:05:08" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\med_256.png" archivePath="Images\med_256.png" lastWriteTime="2014-01-16 20:55:21" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\med_48.png" archivePath="Images\med_48.png" lastWriteTime="2014-01-16 19:32:00" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\med_64.png" archivePath="Images\med_64.png" lastWriteTime="2014-01-16 19:32:00" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\med_gr_256.png" archivePath="Images\med_gr_256.png" lastWriteTime="2014-02-19 17:57:56" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\med_gr_48.png" archivePath="Images\med_gr_48.png" lastWriteTime="2014-02-19 17:57:56" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\rateMe.png" archivePath="Images\rateMe.png" lastWriteTime="2014-02-24 21:39:44" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\removeAd.png" archivePath="Images\removeAd.png" lastWriteTime="2014-03-27 18:33:46" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\review_48.png" archivePath="Images\review_48.png" lastWriteTime="2014-01-16 21:05:08" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\store.png" archivePath="Images\store.png" lastWriteTime="2014-02-24 21:39:44" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\store_48.png" archivePath="Images\store_48.png" lastWriteTime="2014-01-16 21:05:08" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Images\warning_48.png" archivePath="Images\warning_48.png" lastWriteTime="2014-03-03 17:58:30" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="2014-01-16 20:54:28" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="2014-01-16 21:16:14" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Toolkit.Content\ApplicationBar.Add.png" archivePath="Toolkit.Content\ApplicationBar.Add.png" lastWriteTime="2014-01-16 20:54:27" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Toolkit.Content\ApplicationBar.Cancel.png" archivePath="Toolkit.Content\ApplicationBar.Cancel.png" lastWriteTime="2014-01-16 20:54:27" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="2014-01-16 20:54:27" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="2014-01-16 20:54:25" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="2014-01-16 20:54:25" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="2014-01-16 19:27:53" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="2014-01-17 20:49:26" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="2014-01-17 20:49:27" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="2014-01-17 20:49:27" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\Tiles\IconicTileMediumLarge.png" archivePath="Assets\Tiles\IconicTileMediumLarge.png" lastWriteTime="2014-03-01 17:46:19" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Assets\Tiles\IconicTileSmall.png" archivePath="Assets\Tiles\IconicTileSmall.png" lastWriteTime="2014-03-01 17:46:20" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Bin\Release\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2014-03-27 20:07:58" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Bin\Release\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="2014-01-17 20:49:44" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\packages\AdDuplexWP8.2.8.0.8\lib\wp8\AdDuplex.WindowsPhone.dll" archivePath="AdDuplex.WindowsPhone.dll" lastWriteTime="2014-02-19 12:23:27" />
+  <file source="H:\PROJECTS\Windows Phone\BIBLIOTEKI\Atrx.WindowsPhone.Library\Atrx.WindowsPhone.Library.ValueConverters\Bin\Release\Atrx.WindowsPhone.Library.ValueConverters.dll" archivePath="Atrx.WindowsPhone.Library.ValueConverters.dll" lastWriteTime="2014-02-21 20:21:29" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\packages\Coding4Fun.Toolkit.Controls.2.0.7\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll" archivePath="Coding4Fun.Toolkit.Controls.dll" lastWriteTime="2014-01-16 20:51:08" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\MediboxLibrary.WP8.Free\Bin\Release\MediboxLibrary.dll" archivePath="MediboxLibrary.dll" lastWriteTime="2014-03-27 20:07:53" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\MediboxSTA\Bin\Release\MediboxSTA.dll" archivePath="MediboxSTA.dll" lastWriteTime="2014-03-27 20:07:53" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.0\Libraries\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="2013-03-03 19:40:38" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="2014-01-16 20:54:25" />
+  <file source="H:\PROJECTS\smaato\soma_sdk_for_windowsphone_loc_v1.2\somawp8.dll" archivePath="somawp8.dll" lastWriteTime="2013-09-02 20:29:54" />
+  <file source="H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\Medibox.WP8.Free\Bin\Release\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="2014-03-27 20:07:59" />
+</xapCache>

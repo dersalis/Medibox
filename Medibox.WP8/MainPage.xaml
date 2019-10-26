@@ -1,0 +1,272 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+	xmlns:Controls="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+    xmlns:convert="clr-namespace:Atrx.WindowsPhone.Library.ValueConverters;assembly=Atrx.WindowsPhone.Library.ValueConverters"
+    xmlns:localConvert="clr-namespace:Medibox.Converters"
+    
+    xmlns:ctrl="clr-namespace:Medibox.Controls"
+    xmlns:SOMAWP8="clr-namespace:SOMAWP8;assembly=SOMAWP8"
+    x:Class="Medibox.MainPage"
+    xmlns:ad="clr-namespace:AdDuplex;assembly=AdDuplex.WindowsPhone"
+    
+    mc:Ignorable="d"
+    
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <phone:PhoneApplicationPage.Resources>
+        <convert:BooleanToVisibilityConverter x:Key="BoolToVisibility"/>
+        
+        <localConvert:DateToStringConverter x:Key="DateToString"/>
+        <localConvert:TimeToStringConverter x:Key="TimetoString"/>
+        <localConvert:BooleanToVisibilityNotConverter x:Key="BooleanToVisibilityNot"/>
+    </phone:PhoneApplicationPage.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+ 
+        <!--Panorama control-->
+        <phone:Panorama x:Name="panPanel" Grid.Row="0" SelectionChanged="panPanel_SelectionChanged">
+            <phone:Panorama.Title>
+                <StackPanel Orientation="Horizontal" Margin="12, 55, 0, 0">
+                    <Image Source="/Images/med_gr_48.png" Height="35"/>
+                    <TextBlock Text="{Binding LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" FontSize="35" Margin="10, 0, 0, 0" Foreground="#FF8B8B8B"/>
+                </StackPanel>
+            </phone:Panorama.Title>
+            <!--<phone:Panorama.Background>
+                <ImageBrush ImageSource="/Medibox;component/Assets/PanoramaBackground.png"/>
+            </phone:Panorama.Background>-->
+
+
+            <!-- DZISIAJ -->
+            <phone:PanoramaItem>
+                <phone:PanoramaItem.Header>
+                    <TextBlock Text="{Binding LocalizedResources.PageToday, Source={StaticResource LocalizedStrings}}" FontSize="50" Foreground="DarkOrange" />
+                </phone:PanoramaItem.Header>
+
+                <Grid Margin="12, -30, 0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Grid.Row="0" Width="1000" Height="1" Fill="#4C9E000B" />
+
+                    <phone:LongListSelector x:Name="lstMediTask" Grid.Row="1" Margin="0,0,-10,0" ItemsSource="{Binding TasksList}" Tap="lstMediTask_Tap">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <Grid Margin="0, 6, 0, 10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="22"/>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="35"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding StartDate, Converter={StaticResource TimetoString}}" TextWrapping="NoWrap" FontFamily="Segoe WP Light" FontSize="35" Foreground="CornflowerBlue" VerticalAlignment="Top"/>
+                                        <Rectangle Grid.Column="1" Width="2" Fill="Red" Visibility="{Binding IsHighPriority, Converter={StaticResource BoolToVisibility}}" Margin="10, 8, 10, 4"/>
+                                        <StackPanel Grid.Column="2" Orientation="Vertical">
+                                            <TextBlock Text="{Binding MedicineName}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" FontSize="30" Style="{StaticResource JumpListStringStyle}"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Path=LocalizedResources.TextSingleDose, Source={StaticResource LocalizedStrings}}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextSubtleStyle}" Margin="0, 0, 5, 0"/>
+                                                <TextBlock Text="{Binding SingleDose}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="LimeGreen" Margin="0" FontWeight="Bold"/>
+                                            </StackPanel>
+                                            <TextBlock Text="{Binding Note}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{StaticResource PhoneTextSubtleStyle}" FontSize="16" Margin="0"/>
+                                        </StackPanel>
+                                        <Grid Grid.Column="3" Margin="3, 0, 0 ,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Height="1*"/>
+                                            </Grid.RowDefinitions>
+                                            <!--<Image Grid.Row="0" Source="/Images/highPriority.png" Height="20"/>-->
+                                            <Image Grid.Row="0" Source="/Images/alarm.png" Height="20" Visibility="{Binding IsReminder, Converter={StaticResource BoolToVisibility}}"/>
+                                        </Grid>
+                                    </Grid>
+                                    <!--<Rectangle Width="1000" Height="1" Fill="#19FFFFFF"/>-->
+                                </StackPanel>
+                                <!--<StackPanel Margin="0,-6,0,12">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                                </StackPanel>-->
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+
+                    <TextBlock x:Name="txtNoTasks" Grid.Row="2" Text="{Binding LocalizedResources.TextNoTasks, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" TextAlignment="Center" Margin="10, 0, 10, 75"/>
+                    
+                </Grid>
+
+            </phone:PanoramaItem>
+
+
+            <!-- LEKARSTWA -->
+            <phone:PanoramaItem>
+                <phone:PanoramaItem.Header>
+                    <TextBlock Text="{Binding LocalizedResources.PageMedication, Source={StaticResource LocalizedStrings}}" FontSize="50" Foreground="DarkOrange" />
+                </phone:PanoramaItem.Header>
+
+                <Grid Margin="12, -30, 0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Grid.Row="0" Width="1000" Height="1" Fill="#4C9E000B"/>
+
+                    <phone:LongListSelector x:Name="lstMedicines" Grid.Row="1" Margin="0,0,-10,0" ItemsSource="{Binding MedicinesList}" Tap="lstMedicines_Tap">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" toolkit:TiltEffect.IsTiltEnabled="True">
+                                    <!--<toolkit:ContextMenuService.ContextMenu>
+                                        <toolkit:ContextMenu Opacity="0.8">
+                                            <toolkit:MenuItem x:Name="mnuEdit" Header="{Binding LocalizedResources.ButtonEditMedicine, Source={StaticResource LocalizedStrings}}" toolkit:TiltEffect.IsTiltEnabled="True" Tap="mnuEdit_Tap"/>
+                                            <toolkit:MenuItem x:Name="mnuDelete" Header="{Binding LocalizedResources.ButtonDeleteMedicine, Source={StaticResource LocalizedStrings}}" toolkit:TiltEffect.IsTiltEnabled="True" Tap="mnuDelete_Tap"/>
+                                        </toolkit:ContextMenu>
+                                    </toolkit:ContextMenuService.ContextMenu>-->
+                                    
+                                    <Grid Margin="0, 6, 0, 10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="12"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="35"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Rectangle Grid.Column="0" Width="2" Fill="Red" Visibility="{Binding IsHighPriority, Converter={StaticResource BoolToVisibility}}" Margin="0, 8, 10, 4"/>
+                                        <!--<TextBlock Grid.Column="0" Text="14:36" TextWrapping="NoWrap" FontFamily="Segoe WP Light" FontSize="35" Foreground="#FF007ACC" VerticalAlignment="Top"/>-->
+                                        <!--<Rectangle Grid.Column="1" Width="2" Fill="#3F979797" Margin="10, 0"/>-->
+                                        <StackPanel Grid.Column="2" Orientation="Vertical">
+                                            <TextBlock Text="{Binding MedicinName}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" FontSize="30" Style="{StaticResource JumpListStringStyle}"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Path=LocalizedResources.TextDailyDose, Source={StaticResource LocalizedStrings}}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextSubtleStyle}" Margin="0, 0, 5, 0"/>
+                                                <TextBlock Text="{Binding Dose}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="LimeGreen" Margin="0" FontWeight="Bold"/>
+                                                <TextBlock Text=" x " TextWrapping="NoWrap" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="LimeGreen" Margin="0"/>
+                                                <TextBlock Text="{Binding NumberOfDosesPerDay}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="LimeGreen" Margin="0" FontWeight="Bold"/>
+                                            </StackPanel>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Path=LocalizedResources.TextStart, Source={StaticResource LocalizedStrings}}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextSubtleStyle}" FontSize="16" Margin="0, 0, 5, 0"/>
+                                                    <TextBlock Text="{Binding StartDate, Converter={StaticResource DateToString}}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{StaticResource PhoneTextSubtleStyle}" FontSize="16" Margin="0" Foreground="CornflowerBlue" FontWeight="Bold"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Path=LocalizedResources.TextStop, Source={StaticResource LocalizedStrings}}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextSubtleStyle}" FontSize="16" Margin="0, 0, 5, 0"/>
+                                                    <TextBlock Text="{Binding StopDate, Converter={StaticResource DateToString}}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{StaticResource PhoneTextSubtleStyle}" FontSize="16" Margin="0" Foreground="CornflowerBlue" FontWeight="Bold"/>
+                                                </StackPanel>
+                                            </Grid>
+                                            <TextBlock Text="{Binding Note}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{StaticResource PhoneTextSubtleStyle}" FontSize="16" Margin="0"/>
+                                        </StackPanel>
+                                        <Grid Grid.Column="3" Margin="3, 0, 0 ,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Height="1*"/>
+                                            </Grid.RowDefinitions>
+                                            <!--<Image Grid.Row="0" Source="/Images/highPriority.png" Height="20"/>-->
+                                            <Image Grid.Row="0" Source="/Images/alarm.png" Height="20" Visibility="{Binding IsReminder, Converter={StaticResource BoolToVisibility}}"/>
+                                            <Image Grid.Row="1" Source="/Images/warning_48.png" Height="20" Visibility="{Binding IsActive, Converter={StaticResource BooleanToVisibilityNot}}"/>
+                                        </Grid>
+                                    </Grid>
+                                    <!--<Rectangle Width="1000" Height="1" Fill="#19FFFFFF"/>-->
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+
+                    <TextBlock x:Name="txtNoMedicines" Grid.Row="2" Text="{Binding LocalizedResources.TextNoMedicines, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" TextWrapping="Wrap" TextAlignment="Center" Margin="10, 0, 10, 75"/>
+
+                </Grid>
+
+            </phone:PanoramaItem>
+
+
+            <!-- O PROGRAMIE -->
+            <phone:PanoramaItem>
+                <phone:PanoramaItem.Header>
+                    <TextBlock Text="{Binding LocalizedResources.PageAbout, Source={StaticResource LocalizedStrings}}" FontSize="50" Foreground="DarkOrange" />
+                </phone:PanoramaItem.Header>
+                <StackPanel Orientation="Vertical" Margin="12, 0, 0, 0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackPanel Grid.Column="0" Orientation="Vertical">
+                            <Image Source="/Images/med_gr_256.png" Height="120"/>
+                            <TextBlock Text="{Binding LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" HorizontalAlignment="Center" FontFamily="Segoe WP Light" FontSize="30" Style="{StaticResource EmptyListHeaderStyle}" Margin="0, -10, 0, 10"/>
+                        </StackPanel>
+
+                        <Grid Grid.Column="1" Width="auto" Margin="0, 30" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding LocalizedResources.TextVersion, Source={StaticResource LocalizedStrings}}" FontFamily="Segoe WP Light" FontSize="18" Margin="5, 5" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Left"/>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding LocalizedResources.TextAuthor, Source={StaticResource LocalizedStrings}}" FontFamily="Segoe WP Light" FontSize="18" Margin="5, 5" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Left"/>
+                            <TextBlock Grid.Column="0" Grid.Row="2" Text="{Binding LocalizedResources.TextEmail, Source={StaticResource LocalizedStrings}}" FontFamily="Segoe WP Light" FontSize="18" Margin="5, 5" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Left"/>
+
+                            <TextBlock Grid.Column="1" Grid.Row="0" Text="1.0.7.2" FontFamily="Segoe WP Light" FontSize="18" Margin="5, 5" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Left"/>
+                            <TextBlock Grid.Column="1" Grid.Row="1" Text="Damian Ruta" FontFamily="Segoe WP Light" FontSize="18" Margin="5, 5" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Left"/>
+                            <TextBlock Grid.Column="1" Grid.Row="2" x:Name="txtSendEmail" Text="mobileapps@aturex.pl" FontFamily="Segoe WP Light" FontSize="18" Margin="5, 5" Tap="txtSendEmail_Tap" Style="{StaticResource PhoneTextSmallStyle}" TextAlignment="Left"/>
+                        </Grid>
+
+                    </Grid>
+                    
+                    <TextBlock Text="{Binding LocalizedResources.TextInfo, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextSmallStyle}" FontSize="16" TextWrapping="Wrap" Margin="12 12"/>
+                   
+                    <Button x:Name="btnFacebook" BorderThickness="1" BorderBrush="#33FFFFFF" toolkit:TiltEffect.IsTiltEnabled="True" Click="btnFacebook_Click">
+                        <Grid HorizontalAlignment="Left" Margin="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Images/facebook_128.png" Width="65" Margin="0, 0, 15, 0"/>
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
+                                <TextBlock Text="{Binding LocalizedResources.TextFacebookTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" FontSize="25"/>
+                                <TextBlock Text="{Binding LocalizedResources.TextFacebookContent, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextGroupHeaderStyle}" FontSize="18"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+
+                </StackPanel>
+               
+            </phone:PanoramaItem>
+
+        </phone:Panorama>
+
+        <Image x:Name="btnRemoveAd" Source="/Images/removeAd.png" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30, 0" 
+               Visibility="{Binding IsTrial, Converter={StaticResource BoolToVisibility}}" Canvas.ZIndex="1" Tap="btnRemoveAd_Tap">
+            <Image.Projection>
+                <PlaneProjection GlobalOffsetY="10"/>
+            </Image.Projection>
+        </Image>
+        <!-- REKLAMY -->
+        <ad:AdControl Grid.Row="2" AppId="89275" Visibility="{Binding IsTrial, Converter={StaticResource BoolToVisibility}}"/>
+
+        <ctrl:FeedbackOverlay Grid.RowSpan="2" ctrl:FeedbackOverlay.EnableAnimation="True"/>
+
+    </Grid>
+</phone:PhoneApplicationPage>

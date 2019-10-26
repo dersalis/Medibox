@@ -1,0 +1,4 @@
+H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\MediboxSTA\bin\DebugTrial\MediboxSTA.dll
+H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\MediboxSTA\bin\DebugTrial\MediboxSTA.pdb
+H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\MediboxSTA\obj\DebugTrial\MediboxSTA.dll
+H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\MediboxSTA\obj\DebugTrial\MediboxSTA.pdb

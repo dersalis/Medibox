@@ -1,0 +1,4 @@
+H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\MediboxLibrary.WP8.Free\Bin\Debug\MediboxLibrary.dll
+H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\MediboxLibrary.WP8.Free\Bin\Debug\MediboxLibrary.pdb
+H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\MediboxLibrary.WP8.Free\obj\Debug\MediboxLibrary.dll
+H:\PROJECTS\Windows Phone\Medibox\Sources\Medibox\MediboxLibrary.WP8.Free\obj\Debug\MediboxLibrary.pdb
